@@ -1,18 +1,18 @@
 const verifyToken = (req, res) => {
-  try {
-    const accessToken = 'pruebadeTOKEN'
-    const token = req.query['hub.verify_token']
-    const challenge = req.query['hub.challenge']
+  // try {
+  //   const accessToken = 'pruebadeTOKEN'
+  //   const token = req.query['hub.verify_token']
+  //   const challenge = req.query['hub.challenge']
 
-    if (challenge && token && token == accessToken) {
-      res.send(challenge)
-    } else {
-      res.status(400).send()
-    }
-  } catch (error) {
-    res.status(400).send()
-  }
-  res.send('Hola verifyToken')
+  //   if (challenge && token && token === accessToken) {
+  //     res.send(challenge)
+  //   } else {
+  //     res.status(400).send()
+  //   }
+  // } catch (error) {
+  //   res.status(400).send()
+  // }
+  res.send('Hola received')
 }
 
 const receivedMessage = (req, res) => {
