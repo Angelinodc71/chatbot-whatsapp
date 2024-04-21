@@ -1,5 +1,4 @@
 const verifyToken = (req, res) => {
-  console.log(req, res)
   res.send('Hola verify')
 }
 
