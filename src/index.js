@@ -10,5 +10,5 @@ app.use(express.json())
 app.use('/whatsapp', apiRoute)
 
 app.listen(PORT, () => {
-  console.log(`estás escuchando en el puerto ${PORT}`)
+  console.log(`estás escuchando en el puerto: ${PORT}`)
 })
