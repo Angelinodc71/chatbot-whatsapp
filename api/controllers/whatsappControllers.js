@@ -24,11 +24,44 @@ const receivedMessage = (req, res) => {
     const value = changes['value']
     const messageObject = value['messages']
 
+    const messages = messageObject[0]
+    const text = getTextUser(messages)
+
     myConsole.log(messageObject)
 
     res.send('EVENT_RECEIVED')
   } catch (error) {
+
+    myConsole.log(error)
+
     res.send('EVENT_RECEIVED')
+  }
+}
+
+const getTextUser = (message) => {
+  let text = ""
+  const typeMessage = message["type"]
+  if (typeMessage === "text") {
+    text = message.text.body
+  }
+  else if (typeMessage === "interactive") {
+    const interactiveObject = message.interactive
+    const typeInteractive = interactiveObject.type
+    // text = message.text.body
+    myConsole.log(interactiveObject)
+
+    if (typeInteractive === "button_reply") {
+      text = interactiveObject["button_reply"].title
+    }
+    else if (typeInteractive === "list_reply") {
+      text = interactiveObject["list_reply"].title
+    }
+    else {
+      myConsole.log("sin mensaje")
+    }
+  }
+  else {
+
   }
 }
 
