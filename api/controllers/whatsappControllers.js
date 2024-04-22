@@ -47,7 +47,6 @@ const getTextUser = (message) => {
   else if (typeMessage === "interactive") {
     const interactiveObject = message.interactive
     const typeInteractive = interactiveObject.type
-    // text = message.text.body
     myConsole.log(interactiveObject)
 
     if (typeInteractive === "button_reply") {
@@ -61,8 +60,9 @@ const getTextUser = (message) => {
     }
   }
   else {
-
+    myConsole.log("sin mensaje")
   }
+  return text
 }
 
 module.exports = {
