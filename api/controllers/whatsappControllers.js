@@ -1,5 +1,10 @@
 const fs = require("fs");
-const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
+const path = require("path");
+// Obtener la ruta completa del archivo en el directorio temporal
+const tmpFilePath = path.join("/tmp", "logs.txt");
+
+// Crear el objeto myConsole para escribir en el archivo en el directorio temporal
+const myConsole = new console.Console(fs.createWriteStream(tmpFilePath));
 
 const verifyToken = (req, res) => {
   try {
